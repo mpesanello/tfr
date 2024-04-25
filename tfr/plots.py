@@ -1,6 +1,8 @@
 import numpy as np
 import scipy.misc
 import sys
+import matplotlib.image
+
 
 
 def save_raw_spectrogram_bitmap(file_name, spectrogram):
@@ -10,7 +12,7 @@ def save_raw_spectrogram_bitmap(file_name, spectrogram):
     # output:
     # rows = frequency bins (bottom to top)
     # columns = time (left to right)
-    scipy.misc.imsave(file_name, spectrogram.T[::-1])
+    matplotlib.image.imsave(file_name, spectrogram.T[::-1])
 
 def spectrogram_to_image(npz_file):
   save_raw_spectrogram_bitmap(npz_file + '.png', np.load(npz_file)['arr_0'])

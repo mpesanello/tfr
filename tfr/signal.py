@@ -78,9 +78,9 @@ class SignalFrames():
             if padding_size:
                 x = np.pad(x, (0, padding_size), 'constant', constant_values=(0, 0))
             return x
-        frames = np.vstack(
-            pad(x[start:start + frame_size], frame_size) \
-            for start in np.arange(0, hop_size * frame_count, hop_size))
+
+        frames_list = [pad(x[start:start + frame_size], frame_size) for start in np.arange(0, hop_size * frame_count, hop_size)]
+        frames = np.vstack(frames_list)
         return frames
 
     def _to_mono(self, samples):

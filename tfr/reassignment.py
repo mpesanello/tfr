@@ -57,7 +57,7 @@ class Spectrogram():
     Represents spectrogram information of a time-domain signal which can be used
     to compute various types of reassigned spectrograms, pitchgrams, etc.
     """
-    def __init__(self, signal_frames, window=scipy.hanning, positive_only=True):
+    def __init__(self, signal_frames, window=scipy.signal.windows.hann, positive_only=True):
         """
         :param signal_frames: signal represented as SignalFrames instance
         :param window: STFT window function - produces 1D window which will
